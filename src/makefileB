@@ -1,0 +1,27 @@
+FLAGS = -g
+JC = javac
+.SUFFIXES: .java .class
+.java.class:
+	$(JC) $(JFLAGS) $*.java
+
+CLASSES = \
+	cpsc2150/connectX/GameBoard.java \
+	cpsc2150/connectX/GameBoardMem.java \
+	cpsc2150/connectX/Connect4Game.java \
+	cpsc2150/connectX/IGameBoard.java \
+#	cpsc2150/connectX/TestIGameBoard.java
+
+default: cpsc2150/connectX/Connect4Game.java
+	javac cpsc2150/connectX/Connect4Game.java
+#	javac cpsc2150/connectX/IGameBoard.java
+
+classes: $(CLASSES:.java=.class)
+
+run: cpsc2150/connectX/Connect4Game.java
+	java cpsc2150.connectX.Connect4Game
+
+#test: cpsc2150/connectX/IGameBoard.java
+#	java cpsc2150.connectX.IGameBoard
+
+clean:
+	$(RM) cpsc2150/ConnectX/*.class
